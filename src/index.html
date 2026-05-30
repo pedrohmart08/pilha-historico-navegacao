@@ -1,13 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Histórico de Navegação</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><button id="tela1" class="nav-btn">Tela 1</button></li>
+          <li><button id="tela2" class="nav-btn">Tela 2</button></li>
+          <li><button id="tela3" class="nav-btn">Tela 3</button></li>
+          <li><button id="tela4" class="nav-btn">Tela 4</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="navigation-controls">
+        
+      </div>
+
+      <div class="history-container">
+        <h2>Histórico de Navegação</h2>
+        <div class="history-list">
+        </div>
+      </div>
+
+      <div class="iframe-container">
+        <iframe id="content-frame" frameborder="0"></iframe>
+      </div>
+    </main>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
