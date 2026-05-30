@@ -4,6 +4,9 @@ class Pilha{
     constructor(){
         this.items = [];
     }
+    removeAll(){
+        this.items = [];
+    }
     // fazemos a verificação se a pila está vazia
     isEmpty(){
         return this.items.length === 0;
@@ -30,7 +33,7 @@ class Pilha{
             return "Pilha vazia";
         }
         
-        return this.items.slice().reverse().join(" | ");
+        return this.items.slice().reverse().join("<br>");
     }
     tamanho(){
         return this.items.length;
@@ -50,8 +53,10 @@ const navigationControls = document.querySelector(".navigation-controls");
 btnVoltar.classList.add("btnOpcoes");
 btnAvancar.classList.add("btnOpcoes");
 
-navigationControls.appendChild(btnVoltar);
-navigationControls.appendChild(btnAvancar);
+if(navigationControls){
+    navigationControls.appendChild(btnVoltar);
+    navigationControls.appendChild(btnAvancar);
+}
 // Selecionamos o iframe que exibira o conteudo das telas
 const iframe = document.querySelector("#content-frame");
 const btnTela1 = document.querySelector("#tela1");
@@ -59,6 +64,12 @@ const btnTela2 = document.querySelector("#tela2");
 const btnTela3 = document.querySelector("#tela3");
 const btnTela4 = document.querySelector("#tela4");
 const listaHistorico = document.querySelector(".history-list");
+const caminho = [
+    'tela1.html',
+    'tela2.html',
+    'tela3.html',
+    'tela4.html'
+];
 
 btnTela1.addEventListener("click", (event)=>{
     navegar("tela1.html");
@@ -103,23 +114,25 @@ function funcaoAvancar(){
 }
 // renderiza o historico de navegacao na tela
 function renderHistorico() {
-  listaHistorico.innerHTML = "";
-  const itens = historico.items.slice().reverse();
-  itens.forEach((pagina, index) => {
-    const item = document.createElement("div");
-    item.classList.add("history-item");
-    if (index === 0) item.classList.add("history-item--atual");
-    item.textContent = pagina.replace(".html", "").replace("tela", "Tela ");
-    listaHistorico.appendChild(item);
-  });
+  listaHistorico.innerHTML = historico.display();
 }
 // Funcao para navegar entre nossas telas
 function navegar(tela) {
-    if(historico.topo() !== tela){
-        //  empilha a tela
-        historico.push(tela);
-    // e atualiza o src do iframe
-        iframe.setAttribute("src", tela);
-        renderHistorico();
-    }
+    let encontrado = false;
+    caminho.forEach((caminhoTela) =>{
+        if(caminhoTela === tela){
+            encontrado = true;
+        }
+    });
+    if(encontrado === true){
+        if(historico.topo() !== tela){
+            historicoAvancar.removeAll();
+    //      empilha a tela
+            historico.push(tela);
+    //      e atualiza o src do iframe
+            iframe.setAttribute("src", tela);
+            renderHistorico();
+        }
+    }else
+        window.alert("Pagina não encontrada");
 }
