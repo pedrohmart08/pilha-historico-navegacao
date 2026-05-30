@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 header {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-content: center;
+  gap: 10px;
   background-color: #f0f0f0;
   border-bottom: 1px solid black;
   height: 100px
@@ -13,6 +18,7 @@ ul{
     grid-template-columns: repeat(4,1fr);
     grid-column: 1/5;
     grid-row: 1;
+    gap: 5px;
 }
 .nav-btn{
   width: 100%;
@@ -28,6 +34,9 @@ main {
   height: calc(100vh - 56px); 
   overflow: hidden;
 }
+.history-container{
+  border-right: 1px solid black;
+}
 .history-list {
   display: flex;
   flex-direction: column;
@@ -41,6 +50,9 @@ main {
   transition: background 0.2s;
   cursor: default;
 }
+history-item--atual{
+  color: green;
+}
 
 .iframe-container {
   flex: 1;
@@ -48,7 +60,6 @@ main {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
 }
 
 #content-frame {
@@ -63,7 +74,8 @@ main {
   padding: 8px 12px;
 }
 
-.btnVoltar {
+.btnOpcoes {
+  margin: 5px;
   padding: 6px 14px;
   border: none;
 }

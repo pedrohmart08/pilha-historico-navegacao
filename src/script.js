@@ -10,9 +10,6 @@ class Pilha{
     }
       // Adicionamos uma página ao topo da pilha
     push(pagina){
-        if(this.topo() === pagina){
-            return null;
-        }
         this.items.push(pagina);
     }
     // Removemos e retornamos a página do topo da pilha, verificando antes se ela não está vazia
@@ -41,15 +38,20 @@ class Pilha{
 }
 // Criamos uma instância da pilha para armazenar o historico de navegacao
 const historico = new Pilha();
+const historicoAvancar = new Pilha();
 
 const btnVoltar = document.createElement("button");
 btnVoltar.textContent = "<--";
+const btnAvancar = document.createElement("button");
+btnAvancar.textContent = "-->";
 const navigationControls = document.querySelector(".navigation-controls");
 
 // adiciona classe aos nossos botoes
-btnVoltar.classList.add("btnVoltar");
+btnVoltar.classList.add("btnOpcoes");
+btnAvancar.classList.add("btnOpcoes");
 
 navigationControls.appendChild(btnVoltar);
+navigationControls.appendChild(btnAvancar);
 // Selecionamos o iframe que exibira o conteudo das telas
 const iframe = document.querySelector("#content-frame");
 const btnTela1 = document.querySelector("#tela1");
@@ -75,13 +77,27 @@ btnTela4.addEventListener("click", (event)=>{
 if(btnVoltar){
     btnVoltar.addEventListener("click", funcaoVoltar)
 }
+if(btnAvancar){
+    btnAvancar.addEventListener("click", funcaoAvancar)
+}
 
 // Funçao para voltar a tela anterior: so executa se houver mais de uma pagina no historico
 function funcaoVoltar(){
     if(historico.tamanho() > 1){
+        let paginaAtual = historico.topo();
+        historicoAvancar.push(paginaAtual);
         historico.pop();
-        const paginaAnterior = historico.topo();
+        let paginaAnterior = historico.topo();
         iframe.setAttribute("src", paginaAnterior);
+        renderHistorico();
+    }
+}
+function funcaoAvancar(){
+    if(historicoAvancar.tamanho() >= 1){        
+        let paginaAnterior = historicoAvancar.topo();
+        historico.push(paginaAnterior);
+        iframe.setAttribute("src", paginaAnterior);
+        historicoAvancar.pop();
         renderHistorico();
     }
 }
@@ -99,9 +115,11 @@ function renderHistorico() {
 }
 // Funcao para navegar entre nossas telas
 function navegar(tela) {
-//  empilha a tela 
-  historico.push(tela);
-// e atualiza o src do iframe
-  iframe.setAttribute("src", tela);
-  renderHistorico();
+    if(historico.topo() !== tela){
+        //  empilha a tela
+        historico.push(tela);
+    // e atualiza o src do iframe
+        iframe.setAttribute("src", tela);
+        renderHistorico();
+    }
 }
