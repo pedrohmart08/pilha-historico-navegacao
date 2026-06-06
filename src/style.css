@@ -50,9 +50,6 @@ main {
   transition: background 0.2s;
   cursor: default;
 }
-history-item--atual{
-  color: green;
-}
 
 .iframe-container {
   flex: 1;
@@ -75,6 +72,7 @@ history-item--atual{
 }
 
 .btnOpcoes {
+  border-radius: 10px;
   margin: 5px;
   padding: 6px 14px;
   border: none;
