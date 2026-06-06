@@ -62,10 +62,10 @@ btnVoltar.innerHTML = `
 const btnAvancar = document.createElement("button");
 btnAvancar.innerHTML = `<svg width="30" height="10" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M22 14 L42 32 L22 50"
+    d="M24 12 L40 32 L24 52"
     fill="none"
     stroke="#000"
-    stroke-width="12"
+    stroke-width="10"
     stroke-linecap="round"
     stroke-linejoin="round"/>
 </svg>`;
