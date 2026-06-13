@@ -2,39 +2,85 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Histórico de Navegação</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
+
     <header>
-      <h1>Histórico de Navegação</h1>
-      <nav class="navbar">
-        <ul class="nav-list">
-          <li><button id="tela1" class="nav-btn">Tela 1</button></li>
-          <li><button id="tela2" class="nav-btn">Tela 2</button></li>
-          <li><button id="tela3" class="nav-btn">Tela 3</button></li>
-          <li><button id="tela4" class="nav-btn">Tela 4</button></li>
-        </ul>
-      </nav>
+      <div class="controle-navegacao">
+        <!-- js do botão voltar e avancar aqui ? -->
+      </div>
+      <span class="cadeado"><img src="../src/assets/cadeado.svg" alt="seguro"/></span>
+      <input id="" type="text" placeholder="Digite uma URL e pressione Enter..."/>
+      <button id="">Visitar</button>
     </header>
 
     <main>
-      <div class="navigation-controls">
-        
-      </div>
 
-      <div class="history-container">
-        <h2>Histórico de Navegação</h2>
-        <div class="history-list">
+      <!-- painel esquerdo: simulação do site -->
+      <div id="" class="painel-site">
+        <p id=""></p> <!-- nome do site-->
+        <p id=""></p> <!-- URL do site-->
+        <div id="">
+          <!-- conteudo do JS-->
         </div>
       </div>
 
-      <div class="iframe-container">
-        <iframe id="content-frame" frameborder="0"></iframe>
+        <!-- painel direito: pilhas -->
+        <div id="" class="painel-pilhas">
+
+          <!-- pilha 1 -->
+           <div id="" class="pilha-card">
+            <div id="" class="pilha-header"> <!-- header-->
+              <span>PILHA 1 - ATIVA</span>
+              <span id="" class="badge">navegação</span>
+              <span id="">5 / 5</span> <!-- contagem -->
+            </div>
+            <ul id=""> <!-- lista da pilha 1 -->
+              <!-- js aqui -->
+            </ul>
+           </div>
+
+           <!-- pilha 2 -->
+            <div id="" class="pilha-card">
+              <div id="" class="pilha-header"> <!-- header-->
+                <span>PILHA 2 - BACKUP</span>
+                <span id="" class="badge">overflow</span>
+                <span id="">0 itens</span> <!-- contagem -->
+              </div>
+              <ul id=""> <!-- lista da pilha 2 -->
+                <!-- js aqui -->
+              </ul>
+              <p id="">aguardando overflow da pilha 1</p>
+        </div>
+
       </div>
     </main>
 
+    <!-- histórico de navegação -->
+     <div class="historico-container"> 
+      <span>HISTÓRICO DE NAVEGAÇÃO</span>
+      <div class="historico-lista">
+        <!-- JS aqui -->
+      </div>
+      <div id="" class="historico-legenda"> <!-- legenda -->
+        <span>● pilha 1</span>
+        <span>● pilha 2</span>
+      </div>
+     </div>
+
+     <!-- botões de tela (verificar se fica melhor ocultar no css) -->
+    <div id="" class="botoes-tela">
+      <button id="">Tela 1</button>
+      <button id="">Tela 2</button>
+      <button id="">Tela 3</button>
+      <button id="">Tela 4</button>
+      <button id="">Tela 5</button>
+    </div>
+
     <script src="script.js"></script>
+
   </body>
 </html>

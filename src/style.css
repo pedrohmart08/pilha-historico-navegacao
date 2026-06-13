@@ -3,16 +3,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 header {
-  display: grid;
-  grid-template-columns: repeat(1fr);
-  grid-template-rows: repeat(2, 1fr);
-  justify-content: center;
-  gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
   background-color: #f0f0f0;
   border-bottom: 1px solid black;
-  height: 100px
+  height: 56px;
 }
+
+header input{
+  flex: 1;
+}
+
 ul{
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -20,37 +25,25 @@ ul{
     grid-row: 1;
     gap: 5px;
 }
+
 .nav-btn{
   width: 100%;
   height: 100%;
   font-size: 16px;
 }
+
 .nav-list{
     list-style: none;   
 }
+
 main {
   display: flex;
   gap: 0;
-  height: calc(100vh - 56px); 
+  height: calc(100vh - 56px - 48px); 
   overflow: hidden;
 }
-.history-container{
-  border-right: 1px solid black;
-}
-.history-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  overflow-y: auto;
-}
 
-.history-item {
-  padding: 7px 10px;
-  font-size: 0.82rem;
-  transition: background 0.2s;
-  cursor: default;
-}
-
+/* Não está sendo mais usado, verificar se precisa remover
 .iframe-container {
   flex: 1;
   padding: 12px;
@@ -66,14 +59,99 @@ main {
   border-radius: 10px;
   display: block;
 }
+*/
 
-.navigation-controls {
-  padding: 8px 12px;
+.controle-navegacao{
+  display: flex;
+  gap: 4px;
 }
 
 .btnOpcoes {
   border-radius: 10px;
-  margin: 5px;
   padding: 6px 14px;
-  border: none;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.painel-site{
+  flex: 1;
+  padding: 16px;
+  overflow: auto;
+  border-right: 1px solid black;
+}
+
+.painel-pilhas{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  overflow: auto;
+}
+
+.pilha-card{
+  border: 1px solid #ccc;
+}
+
+.pilha-header{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background-color:#f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+
+.pilha-card ul{
+  list-style: none;
+  padding: 8px;
+}
+
+.historico-container{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  height: 48px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.historico-lista{
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.historico-item{
+  padding: 7px 10px;
+  font-size: 0.82rem;
+  transition: background 0.2s;
+  cursor: default;
+}
+
+.historico-legenda{
+  display: flex;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+
+.botoes-tela{
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border-top: 1px solid black;
+}
+
+.cadeado img{
+  width: 16px;
+  height: 20px;
+  display: block;
 }

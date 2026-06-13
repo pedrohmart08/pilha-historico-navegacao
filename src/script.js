@@ -69,7 +69,7 @@ btnAvancar.innerHTML = `<svg width="30" height="10" viewBox="0 0 64 64" xmlns="h
     stroke-linecap="round"
     stroke-linejoin="round"/>
 </svg>`;
-const navigationControls = document.querySelector(".navigation-controls");
+const navigationControls = document.querySelector(".controle-navegacao");
 
 // adiciona classe aos nossos botoes
 btnVoltar.classList.add("btnOpcoes");
