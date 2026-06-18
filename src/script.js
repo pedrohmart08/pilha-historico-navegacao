@@ -115,7 +115,7 @@ btnVoltar.innerHTML = `
   <path
     d="M40 12 L24 32 L40 52"
     fill="none"
-    stroke="#ffffff"
+    stroke="#4a4a4a"
     stroke-width="10"
     stroke-linecap="round"
     stroke-linejoin="round"/>
@@ -126,7 +126,7 @@ btnAvancar.innerHTML = `<svg width="30" height="10" viewBox="0 0 64 64" xmlns="h
   <path
     d="M24 12 L40 32 L24 52"
     fill="none"
-    stroke="#ffffff"
+    stroke="#4a4a4a"
     stroke-width="10"
     stroke-linecap="round"
     stroke-linejoin="round"/>
